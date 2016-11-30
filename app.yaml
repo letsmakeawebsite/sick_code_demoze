@@ -1,0 +1,18 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+service: default
+handlers:
+- url: /.*
+  script: app.app
+skip_files:
+- ^(.*/)?#.*#$
+- ^(.*/)?.*~$
+- ^(.*/)?.*\.py[co]$
+- ^(.*/)?.*\.rst$
+- ^(.*/)?.*/RCS/.*$
+- ^(.*/)?\..*$
+- docs/(.*)
+- fonts/(.*)
+- js/(.*)
+- less/(.*)
