@@ -21,11 +21,11 @@
 
 /* intro block */
 .app-block-intro {
-  padding-top: 20px;
+  padding: 20px 0 0 0;
 }
 .app-block-intro img {
   width: 80%;
-  margin-bottom: -45%;
+  margin-bottom: 0;
 }
 
 /* block img */
