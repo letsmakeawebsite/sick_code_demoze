@@ -33,6 +33,9 @@
 .app-block-stats img {
   width: 100%;
 }
+.app-block-game-img {
+    margin: 0 auto;
+}
 @media (max-width: 480px) {
   .app-block-game-img {
     transform: scale(1.5) !important;
