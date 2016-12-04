@@ -21,17 +21,20 @@
 
 /* intro block */
 .app-block-intro {
-  padding-top: 20px;
+  padding: 20px 0 0 0;
 }
 .app-block-intro img {
   width: 80%;
-  margin-bottom: -45%;
+  margin-bottom: 0;
 }
 
 /* block img */
 .app-block-game img,
 .app-block-stats img {
   width: 100%;
+}
+.app-block-game-img {
+    margin: 0 auto;
 }
 @media (max-width: 480px) {
   .app-block-game-img {
