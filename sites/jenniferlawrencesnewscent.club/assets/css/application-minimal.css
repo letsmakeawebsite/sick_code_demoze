@@ -17,6 +17,10 @@
 .app-navbar .navbar-brand {
   font-size: 13px;
 }
+.app-navbar .social-links {
+    float: right;
+    font-size: 30px;
+}
 
 
 /* intro block */

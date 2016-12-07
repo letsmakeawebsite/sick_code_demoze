@@ -19,6 +19,7 @@
 .app-navbar .social-links {
     float: right;
     font-size: 30px;
+    text-decoration: none;
 }
 
 /* intro block */
