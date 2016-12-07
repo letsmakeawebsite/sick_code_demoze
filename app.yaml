@@ -1,5 +1,6 @@
 runtime: python27
 api_version: 1
+# application: lets-make-a-website
 threadsafe: true
 service: default
 handlers:
