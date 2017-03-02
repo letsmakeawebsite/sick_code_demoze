@@ -4,6 +4,11 @@ api_version: 1
 threadsafe: true
 service: default
 handlers:
+- url: /admin/.*
+  script: app.app
+  login: admin
+- url: /resource
+  static_dir: resource
 - url: /.*
   script: app.app
 skip_files:

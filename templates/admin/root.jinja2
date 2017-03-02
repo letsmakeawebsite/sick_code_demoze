@@ -1,0 +1,33 @@
+{% extends 'admin/base.jinja2' %}
+{% block content %}
+  <h1>Hi, how are?</h1>
+  <a href="/admin/new/" class="btn btn-primary">
+    NEW WEBSITE DIFFERENT DAY
+  </a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Domain</th>
+        <th>Template</th>
+        <th>Preview</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for website in websites %}
+        <tr>
+          <td>
+            <a href="/admin/{{ website.key.urlsafe() }}/">
+              {{ website.domain }}
+            </a>
+          </td>
+          <td>{{ website.template }}</td>
+          <td>
+            <a href="http://{{ domain }}">
+              {{ domain }}
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'admin/base.jinja2' %}
+{% block content %}
+  {% if website.domain %}
+    <h1>
+      {{ website.domain }}
+      <a href="/force-domain/{{ website.domain }}/" class="btn btn-default">
+        Preview
+      </a>
+    </h1>
+  {% else %}
+    <h1>New Website</h1>
+  {% endif %}
+  <form method="POST">
+    <button class="btn btn-primary">
+      SAVE CHANGES
+    </button>
+    <div class="input-group">
+      <span class="input-group-addon">
+        Domain
+      </span>
+      <input type="text" class="form-control" placeholder="Domain"
+        value="{{ website.domain or '' }}"
+        name="domain" />
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">
+        Template
+      </span>
+      <select class="form-control" name="template">
+        <option value="bootstrap-marketing"
+            {% if website.template == 'bootstrap-marketing' %}
+              selected
+            {% endif %}>
+          bootstrap-marketing
+        </option>
+      </select>
+    </div>
+    <textarea name="data" id="src">{{ website.data or '' }}</textarea>
+    <div>
+      <button class="btn btn-default" id="insert-default-src">
+        Insert Default Src
+      </button>
+    </div>
+    <script type="application/json" id="default-srcs">{{ DEFAULT_SRCS }}</script>
+    <div>
+      <iframe width="100%" src="/admin/upload/"></iframe>
+    </div>
+  </form>
+{% endblock %}
