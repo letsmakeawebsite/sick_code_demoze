@@ -33,6 +33,12 @@
             {% endif %}>
           bootstrap-marketing
         </option>
+        <option value="bootstrap-startup"
+            {% if website.template == 'bootstrap-startup' %}
+              selected
+            {% endif %}>
+          bootstrap-startup
+        </option>
       </select>
     </div>
     <textarea name="data" id="src">{{ website.data or '' }}</textarea>
