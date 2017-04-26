@@ -1,0 +1,31 @@
+.navbar-default .navbar-brand {
+  color: #ffb500;
+}
+
+.app-navbar {
+  background-color: #304056;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+body {
+  border-top: 50px solid #304056;
+  border-bottom: 50px solid #304056;
+  box-sizing: border-box;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.block {
+  color: #fff;
+  background-color: #5f6f88;
+}
+
+a, .text-primary {
+    filter: brightness(200%);
+}
+
+.statcard-desc {
+    color: #cacaca;
+}
