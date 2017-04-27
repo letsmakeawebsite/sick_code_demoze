@@ -233,5 +233,6 @@ plan3Body: "Corporations run the world, and you're a big-wig. This one's for you
 DEFAULT_SRCS = {
     'bootstrap-marketing': BOOTSTRAP_MARKETING_SRC,
     'bootstrap-marketing-dark': BOOTSTRAP_MARKETING_SRC,
+    'bootstrap-marketing-light': BOOTSTRAP_MARKETING_SRC,
     'bootstrap-startup': BOOSTRAP_STARTUP_SRC,
 }

@@ -1,0 +1,34 @@
+
+.app-navbar, .block {
+    color: #666;
+    background-color: #fff;
+}
+body {
+    border-top: none;
+    border-bottom: none;
+    border-left: 50px solid #E9E0E2;
+    border-right: 50px solid #E9E0E7;
+    background-color: #fff;
+    color: #000;
+}
+.navbar-default .navbar-brand {
+    color: #393a4c;
+    font-size: 16pt;
+}
+h1.text-uppercase {
+    color: #88ab9c;
+    font-weight: bold;
+}
+.text-primary {
+    color: #406556;
+}
+a {
+    color: #363748;
+}
+h6 {
+    color: #000;
+    font-weight: bold;
+}
+.lead {
+    color: #999;
+}

@@ -39,6 +39,12 @@
             {% endif %}>
           bootstrap-marketing-dark
         </option>
+        <option value="bootstrap-marketing-light"
+            {% if website.template == 'bootstrap-marketing-light' %}
+              selected
+            {% endif %}>
+          bootstrap-marketing-light
+        </option>
         <option value="bootstrap-startup"
             {% if website.template == 'bootstrap-startup' %}
               selected
