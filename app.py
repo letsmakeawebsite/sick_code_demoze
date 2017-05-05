@@ -230,9 +230,82 @@ plan3: Corporate
 plan3Body: "Corporations run the world, and you're a big-wig. This one's for you!"
 """.strip()
 
+BOOSTRAP_CHARITY_SRC = """
+title: "Somebody's Charity"
+shortTitle: "Help Somethings In Need"
+headerImage: "/img/SiUcfaZre4lkveoNuaHWzg=="
+headline: "Somebody's Foundation for the Something"
+tagline: '"Helping people because of a thing for a period of time"'
+buttonText: "You should prolly like donate"
+marquee: The <marquee> element is obsolete and must not be used. While some browsers still support it, it's not required. In addition, using this element is basically one of the worst things you can do to your users, so please, please don't do it.
+
+enableSection2: true
+section2Image: "/img/CTGlcNPKpwOGR_NWSvidOA=="
+section2Title: "Annual prospectus agenda letter"
+section2Heading: "Telling people about the cause, just 'cause"
+section2Description: '"It''s the right thing to do!" - Krang, Chief Charity Coordinator'
+section2Feature1Heading: "Don't be Evil"
+section2Feature1Description: "Right in the feels"
+section2Feature2Heading: "The Human Fund"
+section2Feature2Description: "Money for people"
+
+enableDevSection: true
+devSectionTitle: "Are you donating yet?"
+devSectionHeading: "Give us money"
+devSectionBody: "With your money, we'll have the resources to buy things, which are invaluable in our fight to help the people the thing that happened happened to."
+devSectionButton: "Gimme the loot"
+devSectionCode: |
+  159,265+ Lira raised
+  3.1 million things saved
+  200+ bad things happen each year
+  4/5 dentists agree
+  1 person can make a difference...
+
+enableQuote: true
+quoteImage: "/img/42NHLi2fPHB3mNqNR2Uylw=="
+quoteTitle: "Don't take our word for it"
+quoteBody: "Veni, vidi, vici"
+quoteAttribution: "Julius Caesar, Sr. Social Strategist"
+
+enableFeatures: true
+featureTitle: ""
+featureBody: ""
+feature1Icon: heartbeat
+feature1Header: "Literally saving lives"
+feature1Body: "One life at a time"
+feature2Icon: money
+feature2Header: 'It''s a tax write off'
+feature2Body: "Mama's gotta wet her beak"
+feature3Icon: facebook-square
+feature3Header: "Something to brag about"
+feature3Body: "Make your friends bitter that you're clearly better than them"
+enableFeaturesLine2: true
+feature4Icon: life-saver
+feature4Header: "World class maritime support"
+feature4Body: "Nobody handles boat charity like us"
+feature5Icon: paper-plane-o
+feature5Header: "Primitive aeronautics"
+feature5Body: "Wait what do paper planes have to do with any of this?"
+feature6Icon: mortar-board
+feature6Header: "Don't be an idiot"
+feature6Body: "Gosh, just give already, geez"
+
+enablePlans: true
+plansTitle: Choose your own ad-gift-ure
+planUnits: "It's hella flexible"
+plansBody: "Pick a sponsorship that works right for you"
+plan1: Louse
+plan1Body: "Is that the best that you can do?"
+plan2: Cheapskate
+plan2Body: "Everybody knows you could afford more."
+plan3: Decent Person
+plan3Body: "Now we're cooking with gas!"
+""".strip()
+
 DEFAULT_SRCS = {
     'bootstrap-marketing': BOOTSTRAP_MARKETING_SRC,
     'bootstrap-marketing-dark': BOOTSTRAP_MARKETING_SRC,
     'bootstrap-marketing-light': BOOTSTRAP_MARKETING_SRC,
     'bootstrap-startup': BOOSTRAP_STARTUP_SRC,
+    'bootstrap-charity': BOOSTRAP_CHARITY_SRC,
 }

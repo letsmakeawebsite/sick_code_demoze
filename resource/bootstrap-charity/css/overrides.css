@@ -1,0 +1,31 @@
+.app-ribbon {
+    background-color: #b74242
+}
+.btn-primary {
+    background-color: #b74242;
+    border-color: #b74242;
+}
+.btn-primary:hover {
+    background-color: #8c1616;
+    border-color: #8c1616;
+}
+.media-logos img {
+    height: 30px;
+}
+
+.app-iphone-block {
+    padding-bottom: 120px;
+}
+.app-iphone {
+    border-radius: 50%;
+}
+a {
+    color: #d6d6d6;
+}
+.app-marketing-grid i.fa {
+    font-size: 70pt;
+    width: 100px;
+    height: 100px;
+    color: #55c5c2;
+    margin: 10px;
+}

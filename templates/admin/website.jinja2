@@ -1,67 +1,60 @@
 {% extends 'admin/base.jinja2' %}
+{% macro selectOption(value, selected) %}
+    <option value="{{ value }}"
+            {% if selected == value %}
+                selected
+            {% endif %}>
+        {{ value }}
+    </option>
+{% endmacro %}
 {% block content %}
-  {% if website.domain %}
-    <h1>
-      {{ website.domain }}
-      <a href="/force-domain/{{ website.domain }}/" class="btn btn-default">
-        Preview
-      </a>
-    </h1>
-  {% else %}
-    <h1>New Website</h1>
-  {% endif %}
-  <form method="POST">
-    <button class="btn btn-primary">
-      SAVE CHANGES
-    </button>
-    <div class="input-group">
-      <span class="input-group-addon">
-        Domain
-      </span>
-      <input type="text" class="form-control" placeholder="Domain"
-        value="{{ website.domain or '' }}"
-        name="domain" />
-    </div>
-    <div class="input-group">
-      <span class="input-group-addon">
-        Template
-      </span>
-      <select class="form-control" name="template">
-        <option value="bootstrap-marketing"
-            {% if website.template == 'bootstrap-marketing' %}
-              selected
-            {% endif %}>
-          bootstrap-marketing
-        </option>
-        <option value="bootstrap-marketing-dark"
-            {% if website.template == 'bootstrap-marketing-dark' %}
-              selected
-            {% endif %}>
-          bootstrap-marketing-dark
-        </option>
-        <option value="bootstrap-marketing-light"
-            {% if website.template == 'bootstrap-marketing-light' %}
-              selected
-            {% endif %}>
-          bootstrap-marketing-light
-        </option>
-        <option value="bootstrap-startup"
-            {% if website.template == 'bootstrap-startup' %}
-              selected
-            {% endif %}>
-          bootstrap-startup
-        </option>
-      </select>
-    </div>
-    <textarea name="data" id="src">{{ website.data or '' }}</textarea>
-    <div>
-      <button class="btn btn-default" id="insert-default-src">
-        Insert Default Src
-      </button>
-    </div>
-    <script type="application/json" id="default-srcs">{{ DEFAULT_SRCS }}</script>
-    <div>
-      <iframe width="100%" src="/admin/upload/"></iframe>
-    </div>
-  </form>
+    {% if website.domain %}
+        <h1>
+            {{ website.domain }}
+            <a href="/force-domain/{{ website.domain }}/" class="btn btn-default">
+                Preview
+            </a>
+        </h1>
+    {% else %}
+        <h1>New Website</h1>
+    {% endif %}
+    <form method="POST">
+        <button class="btn btn-primary">
+            SAVE CHANGES
+        </button>
+        <div class="input-group">
+            <span class="input-group-addon">
+                Domain
+            </span>
+            <input type="text" class="form-control" placeholder="Domain"
+                value="{{ website.domain or '' }}"
+                name="domain" />
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">
+                Template
+            </span>
+            <select class="form-control" name="template">
+                {% for template in [
+                    'bootstrap-marketing',
+                    'bootstrap-marketing-dark',
+                    'bootstrap-marketing-light',
+                    'bootstrap-startup',
+                    'bootstrap-charity',
+                ] %}
+                    {{ selectOption(template, website.template )}}
+                {% endfor %}
+            </select>
+        </div>
+        <textarea name="data" id="src">{{ website.data or '' }}</textarea>
+        <div>
+            <button class="btn btn-default" id="insert-default-src">
+                Insert Default Src
+            </button>
+        </div>
+        <script type="application/json" id="default-srcs">{{ DEFAULT_SRCS }}</script>
+        <div>
+            <iframe width="100%" src="/admin/upload/"></iframe>
+        </div>
+    </form>
 {% endblock %}
