@@ -300,8 +300,6 @@ plan2: Cheapskate
 plan2Body: "Everybody knows you could afford more."
 plan3: Decent Person
 plan3Body: "Now we're cooking with gas!"
-
-payPalEnabled: true
 """.strip()
 
 DEFAULT_SRCS = {
