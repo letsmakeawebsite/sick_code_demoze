@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="This website was built onstage in front of a live audience at the Upright Citizen's Brigade Theatre in New York City as part of the show 'Let's Make a Website'">
+        <meta name="keywords" content="Mark Vigeant, UCB, Website, Sketch Comedy, Web Ring, dumb, lol, haha, jk, why the fuck do keywords exist, is this helping my seo">
+        <meta name="author" content="Mark Vigeant, Kevin Dolan, and Matt Gehring">
+        <link href="/resource/bootstrap-marketing/img/favicon.ico" rel="shortcut icon" />
+
+        <!-- Open GRAPH dude -->
+        <meta property="og:title" content="{{ title }}" />
+        <meta property="og:description" content="This website was built onstage in front of a live audience at the Upright Citizen's Brigade Theatre in New York City as part of the show 'Let's Make a Website" />
+        <meta property="og:url" content="http://{{ domain }}/" />
+        <meta property="og:image" content="http://{{ domain }}{{ headerImage }}" />
+
+        <!-- TWITTER -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@stinkycheeseman" />
+        <meta name="twitter:title" content="{{ title }}" />
+        <meta name="twitter:creator" content="@stinkycheeseman" />
+        <meta name="twitter:description" content="This website was built onstage in front of a live audience at the Upright Citizen's Brigade Theatre in New York City as part of the show 'Let's Make a Website" />
+        <meta name="twitter:image" content="http://{{ domain }}{{ headerImage }}" />
+        <meta name="twitter:url" content="http://{{ domain }}/" />
+
+        <title>
+                {{ title }}
+        </title>
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
+        <link href="/resource/bootstrap-marketing/css/toolkit-minimal.css" rel="stylesheet">
+        <link href="/resource/bootstrap-marketing/css/application-startup.css" rel="stylesheet">
+        <link href="/resource/bootstrap-charity-dark/css/overrides.css" rel="stylesheet">
+
+        <style>
+            /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+            /* this chunk of css is not part of the toolkit :) */
+            /* …curses ios, etc… */
+            @media (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+                body {
+                    width: 1px;
+                    min-width: 100%;
+                    *width: 100%;
+                }
+                #stage {
+                    height: 1px;
+                    overflow: auto;
+                    min-height: 100vh;
+                    -webkit-overflow-scrolling: touch;
+                }
+            }
+        </style>
+</head>
+
+<body>
+
+
+<div class="stage" id="stage">
+
+<div class="block block-inverse block-fill-height app-header"
+         style="background-image: url('{{ headerImage }}');">
+
+         <nav class="navbar navbar-transparent navbar-fixed-top navbar-padded app-navbar p-t-md">
+                 <div class="container">
+                         <div class="social-links white" style="margin-right: 20px">
+                                 <a href="https://twitter.com/intent/tweet?text=I+helped+make+this+website&url=http://{{ domain }}/&via=ucbtny&related=stinkycheeseman,kevinjdolan,lossywords,mrgehring" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
+                                         <i class="fa fa-twitter" aria-hidden="true"></i>
+                                 </a>
+                                 <a href="https://www.facebook.com/dialog/share?app_id=157154611123962&display=popup&href=http://{{ domain }}/" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
+                                         <i class="fa fa-facebook" aria-hidden="true"></i>
+                                 </a>
+                         </div>
+                         <div class="navbar-header">
+                                 <a class="navbar-brand" href="">
+                                         <strong style="padding: 12px; border-radius: 4px;">
+                                                 {{ shortTitle }}
+                                         </strong>
+                                 </a>
+                         </div>
+                 </div>
+         </nav>
+
+    <div class="block-xs-middle p-b-lg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-md-6 float-right">
+                    <h1 class="block-title m-b-sm">{{ headline }}</h1>
+                    <p class="lead m-b-md text-muted">{{ tagline }}</p>
+                    <a class="btn btn-primary btn-lg" href="https://twitter.com/intent/tweet?text=I+helped+make+this+website&url=http://{{ domain }}/&via=ucbtny&related=stinkycheeseman,kevinjdolan,lossywords,mrgehring" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
+                            {{ buttonText }}
+                    </a>
+                    <marquee>
+                            {{ marquee }}
+                    </marquee>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if enableSection2 %}
+<div class="block block-secondary app-iphone-block">
+    <div class="container">
+        <div class="row app-align-center">
+
+            <div class="col-sm-6 col-sm-offset-1">
+                <h6 class="text-muted text-uppercase">{{ section2Title }}</h6>
+                <h3 class="m-t-0">{{ section2Heading }}</h3>
+                <p class="lead m-b-md">{{ section2Description }}</p>
+                <div class="row hidden-sm hidden-xs redtext">
+                    <div class="col-sm-6 m-b-md">
+                        <h5 class="m-y-0">{{ section2Feature1Heading }}</h5>
+                        <p>{{ section2Feature1Description }}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <h5 class="m-y-0">{{ section2Feature2Heading }}</h5>
+                        <p>{{ section2Feature2Description }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                <img class="app-iphone" src="{{ section2Image }}" style="width: 100%;">
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endif %}
+
+{% if enableDevSection %}
+<div class="block block-inverse block-secondary app-code-block">
+    <div class="container">
+        <div class="row app-align-center">
+            <div class="col-sm-5 col-sm-push-7">
+                <pre class="app-code">{% for line in devSectionCode.split('\n') %} {{ line }}
+{% endfor %}</pre>
+            </div>
+
+            <div class="col-sm-6 col-sm-pull-5">
+                <h6 class="text-muted text-uppercase">{{ devSectionTitle }}</h6>
+                <h3 class="m-t-0">{{ devSectionHeading }}</h3>
+                <p class="lead m-b-md text-muted">{{ devSectionBody }}</p>
+                <a class="btn btn-default btn-lg btn-borderless" href="https://twitter.com/intent/tweet?text=I+helped+make+this+website&url=http://{{ domain }}/&via=ucbtny&related=stinkycheeseman,kevinjdolan,lossywords,mrgehring" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
+                    {{ devSectionButton }}
+            </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if enableQuote %}
+<div class="block block-secondary app-high-praise p-b-0">
+    <div class="container">
+        <div class="row app-align-center">
+            <div class="col-sm-5 col-sm-push-7">
+                <h6 class="text-muted text-uppercase">{{ quoteTitle }}</h6>
+                <h3 class="m-t-0 m-b-md">“{{ quoteBody }}”</h3>
+                <p class="m-b-md text-muted">{{ quoteAttribution }}</p>
+            </div>
+            <div class="col-sm-6 col-sm-pull-5">
+                <img src="{{ quoteImage }}">
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="block app-ribbon p-y-lg">
+    <div class="container text-center media-logos">
+        <img src="/resource/bootstrap-charity/img/logo-nyt.png">
+        <img src="/resource/bootstrap-charity/img/logo-wsj.png">
+        <img src="/resource/bootstrap-charity/img/logo-usat.png">
+    </div>
+</div>
+
+<div class="block block-inverse block-bordered-lg block-overflow-hidden p-b-0 app-block-design bing">
+        <div class="container">
+                <h3>Bing.com, on {{ title }}</h3>
+                <iframe src="https://bing.com"></iframe>
+        </div>
+</div>
+
+{% if enableFeatures %}
+<div class="block block-secondary app-block-marketing-grid">
+    <div class="container text-center">
+
+        <div class="row m-b-lg">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+                <h6 class="text-muted text-uppercase">{{ featureTitle }}</h6>
+                <h3  class="m-t-0 m-b">{{ featureBody }}</h3>
+            </div>
+        </div>
+
+        <div class="row app-marketing-grid">
+            <div class="col-sm-4 p-x-md m-b-lg">
+                <i class="fa fa-{{ feature1Icon }}"></i>
+                <p><strong>{{ feature1Header }}</strong> <div>{{ feature1Body }}</div></p>
+            </div>
+            <div class="col-sm-4 p-x-md m-b-lg">
+                <i class="fa fa-{{ feature2Icon }}"></i>
+                <p><strong>{{ feature2Header }}</strong> <div>{{ feature2Body }}</div></p>
+            </div>
+            <div class="col-sm-4 p-x-md m-b-lg">
+                <i class="fa fa-{{ feature3Icon }}"></i>
+                <p><strong>{{ feature3Header }}</strong> <div>{{ feature3Body }}</div></p>
+            </div>
+        </div>
+
+        {% if enableFeaturesLine2 %}
+        <div class="row app-marketing-grid">
+            <div class="col-sm-4 p-x-md m-b-lg">
+                <i class="fa fa-{{ feature4Icon }}"></i>
+                <p><strong>{{ feature4Header }}</strong> <div>{{ feature4Body }}</div></p>
+            </div>
+            <div class="col-sm-4 p-x-md m-b-lg">
+                <i class="fa fa-{{ feature5Icon }}"></i>
+                <p><strong>{{ feature5Header }}</strong> <div>{{ feature5Body }}</div></p>
+            </div>
+            <div class="col-sm-4 p-x-md m-b-lg">
+                <i class="fa fa-{{ feature6Icon }}"></i>
+                <p><strong>{{ feature6Header }}</strong> <div>{{ feature6Body }}</div></p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+
+{% if enablePlans %}
+<div class="block app-price-plans">
+    <div class="container text-center">
+
+        <div class="row m-b-lg">
+            <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+                <h6 class="text-muted text-uppercase">{{ plansTitle }}</h6>
+                <h3  class="m-t-0">{{ plansBody }}</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4 p-x m-b-lg">
+                <div class="p-x">
+                    <h6 class="text-muted text-uppercase m-b">{{ plan1 }}</h6>
+                    <img class="m-b" src="/resource/bootstrap-marketing/img/startup-15.svg">
+                    <p>{{ plan1Body }}</p>
+                </div>
+            </div>
+
+            <div class="col-sm-4 p-x m-b-lg">
+                <div class="p-x">
+                    <h6 class="text-muted text-uppercase m-b">{{ plan2 }}</h6>
+                    <img class="m-b" src="/resource/bootstrap-marketing/img/startup-16.svg">
+                    <p>{{ plan2Body }}</p>
+                </div>
+            </div>
+
+            <div class="col-sm-4 p-x m-b-lg">
+                <div class="p-x">
+                    <h6 class="text-muted text-uppercase m-b">{{ plan3 }}</h6>
+                    <img class="m-b" src="/resource/bootstrap-marketing/img/startup-17.svg">
+                    <p>{{ plan3Body }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="donate">
+            <a href="https://action.aclu.org/secure/donate-to-aclu" class="btn btn-primary" target="_blank">
+                Make your donation
+            </a>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="block block-bordered-lg text-center block-social">
+        <div class="container-fluid">
+                <p class="lead m-b-md">
+                        Share this site with your friends via <strong>social media.</strong>
+                        Hey, it's better than fake news!
+                </p>
+                <div class="giant-share-buttons">
+                        <a href="https://twitter.com/intent/tweet?text=I+helped+make+this+website&url=http://{{ domain }}/&via=ucbtny&related=stinkycheeseman,kevinjdolan,lossywords,mrgehring" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.facebook.com/dialog/share?app_id=157154611123962&display=popup&href=http://{{ domain }}/" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                </div>
+                <small class="text-muted">
+                        By clicking these share buttons, you agree to the surrender of your first-born child to local authorities, after a terrifying and dangerous manhunt.
+                </small>
+        </div>
+</div>
+
+<div class="block block-inverse app-block-footer">
+        <div class="container">
+                <div class="row">
+                        <div class="col-sm-3 m-b">
+
+                                <ul class="list-unstyled list-spaced">
+                                        <li><h6 class="text-uppercase">Other Websites</h6></li>
+                                        <li>
+                                                <a href="http://letsmakeaweb.site">
+                                                        letsmakeaweb.site
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a href="http://markvigeant.directory">
+                                                        markvigeant.directory
+                                                </a>
+                                        </li>
+                                </ul>
+
+                        </div>
+                        <div class="col-sm-3 m-b">
+
+                                <ul class="list-unstyled list-spaced">
+                                        <li><h6 class="text-uppercase">Rightside</h6></li>
+                                        <li>
+                                                <a href="http://www.rightside.co/">
+                                                        Rightside.co
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a href="https://www.name.com/">
+                                                        Name.com
+                                                </a>
+                                        </li>
+                                </ul>
+
+                        </div>
+        <div class="col-sm-6">
+                <h6 class="text-uppercase">About</h6>
+                <p>
+                        This website was built onstage in front of a live audience at the Upright Citizen's Brigade Theatre in New York City as part of the show "Let's Make a Website," written and performed by <a href="http://markvigeant.com">Mark Vigeant</a>, Directed by <a href="http://matthewrobertgehring.com/">Matt Gehring</a>, with help from <a href="http://haikufu.com/">Kevin J. Dolan</a>.
+                </p>
+                <p>
+                        &copy; 2017 Mark Vigeant, Kevin J. Dolan
+                </p>
+        </div>
+</div>
+
+</div>
+
+
+        <script src="/resource/bootstrap-marketing/js/jquery.min.js"></script>
+        <script src="/resource/bootstrap-marketing/js/toolkit.js"></script>
+        <script src="/resource/bootstrap-marketing/js/application.js"></script>
+    </body>
+</html>
