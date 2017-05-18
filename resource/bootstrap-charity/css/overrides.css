@@ -1,3 +1,7 @@
+body {
+    cursor: url("/resource/mark_cursor.png") 2 2, auto;
+}
+
 .app-ribbon {
     background-color: #b74242
 }

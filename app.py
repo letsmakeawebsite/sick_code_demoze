@@ -308,4 +308,5 @@ DEFAULT_SRCS = {
     'bootstrap-marketing-light': BOOTSTRAP_MARKETING_SRC,
     'bootstrap-startup': BOOSTRAP_STARTUP_SRC,
     'bootstrap-charity': BOOSTRAP_CHARITY_SRC,
+    'philadelphia': BOOSTRAP_CHARITY_SRC,
 }
