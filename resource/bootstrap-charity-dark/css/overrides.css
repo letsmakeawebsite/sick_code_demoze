@@ -1,0 +1,76 @@
+body {
+    cursor: url("/resource/mark_cursor.png") 2 2, auto;
+}
+a {
+    color: #96753d;
+}
+.redtext {
+    color: #ff6060;
+}
+.app-iphone-block {
+    background-color: #27333e;
+    color: #fff;
+}
+.app-iphone-block .text-muted {
+    color: #723c84;
+    font-weight: bold;
+    font-size: 16pt;
+}
+.btn-primary {
+    background-color: #225077;
+    border-color: #225077;
+}
+.float-right {
+    float: right;
+}
+h1 {
+    text-align: right;
+}
+a.navbar-brand strong {
+    color: #fff;
+    background-color: #723c84;
+}
+.app-code-block {
+    background-color: #3d4e34;
+}
+.app-code {
+    color: #96753d;
+    border: none;
+    border-left: 3px solid #7f8c78;
+    border-radius: 0;
+}
+.app-ribbon {
+    background-color: #442c04;
+}
+.app-block-marketing-grid {
+    background-color: #3d4e34;
+    color: #cadcc0;
+}
+.app-marketing-grid i.fa {
+    font-size: 70pt;
+    width: 100px;
+    height: 100px;
+    color: #96753d;
+    margin: 10px;
+}
+.app-price-plans {
+    background-color: #723c84;
+    color: #d6b9e0;
+}
+.app-price-plans .text-muted {
+    color: #27333e;
+    font-weight: bold;
+    font-size: 13pt;
+}
+.app-price-plans .btn-primary {
+    background-color: #ab0000;
+    border-color: #ab0000;
+    font-size: 14pt;
+}
+.block-social {
+    background-color: #442c04;
+    color: #fff;
+}
+.block-social a {
+    color: #96753d;
+}
