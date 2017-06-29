@@ -245,65 +245,64 @@ theater_twitter: "ucbtny"
 
 enableSection2: true
 section2Image: "/img/CTGlcNPKpwOGR_NWSvidOA=="
-section2Title: "Annual prospectus agenda letter"
-section2Heading: "Telling people about the cause, just 'cause"
-section2Description: '"It''s the right thing to do!" - Krang, Chief Charity Coordinator'
-section2Feature1Heading: "Don't be Evil"
-section2Feature1Description: "Right in the feels"
+section2Title: "Weekly syllabus schedule memo"
+section2Heading: "Please to provide with timelines post haste"
+section2Description: '"Silly rabbit, Trix are generally incompatible with your recommended diet of hay and/or grass with leafy green vegetables, herbs, and safe weeds" - Krang, Chief Charity Coordinator'
+section2Feature1Heading: "Do what you want"
+section2Feature1Description: "But def donate"
 section2Feature2Heading: "The Human Fund"
 section2Feature2Description: "Money for people"
 
 enableDevSection: true
-devSectionTitle: "Are you donating yet?"
-devSectionHeading: "Give us money"
-devSectionBody: "With your money, we'll have the resources to buy things, which are invaluable in our fight to help the people the thing that happened happened to."
-devSectionButton: "Gimme the loot"
+devSectionTitle: "Please to initiate wire transfer?"
+devSectionHeading: "All your bills are belong to us"
+devSectionBody: "We need money to sustain our efforts to collect more money"
+devSectionButton: "I just want the paper, the Visa, capiche?"
 devSectionCode: |
-  159,265+ Lira raised
-  3.1 million things saved
-  200+ bad things happen each year
-  4/5 dentists agree
-  1 person can make a difference...
+    (defun charity (N)
+       "Give money"
+       (if (or (zerop N) (= N 1))
+           1
+         (+ (charity (- N 1)) (charity (- N 2)))))
 
 enableQuote: true
 quoteImage: "/img/42NHLi2fPHB3mNqNR2Uylw=="
-quoteTitle: "Don't take our word for it"
-quoteBody: "Veni, vidi, vici"
-quoteAttribution: "Julius Caesar, Sr. Social Strategist"
+quoteTitle: "Something someone said:"
+quoteBody: "My life is dope and I do dope shit"
+quoteAttribution: "Yeezy, Jr. Influencer"
 
 enableFeatures: true
 featureTitle: ""
 featureBody: ""
-feature1Icon: heartbeat
-feature1Header: "Literally saving lives"
-feature1Body: "One life at a time"
-feature2Icon: money
-feature2Header: 'It''s a tax write off'
-feature2Body: "Mama's gotta wet her beak"
-feature3Icon: facebook-square
-feature3Header: "Something to brag about"
-feature3Body: "Make your friends bitter that you're clearly better than them"
+feature1Icon: bullhorn
+feature1Header: "Go tell it on the mountain"
+feature1Body: "Over the hills and everywhere"
+feature2Icon: bath
+feature2Header: 'Clean your conscience'
+feature2Body: "You know what you've done"
+feature3Icon: asl-interpreting
+feature3Header: "Not a gang sign"
+feature3Body: "ASL/Accessibility compliant"
 enableFeaturesLine2: true
-feature4Icon: life-saver
-feature4Header: "World class maritime support"
-feature4Body: "Nobody handles boat charity like us"
-feature5Icon: paper-plane-o
-feature5Header: "Primitive aeronautics"
-feature5Body: "Wait what do paper planes have to do with any of this?"
-feature6Icon: mortar-board
-feature6Header: "Don't be an idiot"
-feature6Body: "Gosh, just give already, geez"
+feature4Icon: cloud
+feature4Header: "Caring... in the cloud"
+feature4Body: "It's a buzzword so you know it's important"
+feature5Icon: eye-slash
+feature5Header: "Avoid eye slashing"
+feature5Body: "Lack of donation may lead to getting yourself cut"
+feature6Icon: group
+feature6Header: "Roll deep"
+feature6Body: "If everyone else donated, wouldn't you?"
 
 enablePlans: true
-plansTitle: Choose your own ad-gift-ure
-planUnits: "It's hella flexible"
-plansBody: "Pick a sponsorship that works right for you"
-plan1: Louse
-plan1Body: "Is that the best that you can do?"
-plan2: Cheapskate
-plan2Body: "Everybody knows you could afford more."
-plan3: Decent Person
-plan3Body: "Now we're cooking with gas!"
+plansTitle: How much money you got?
+plansBody: "We'll take as much as you'll give us"
+plan1: Vagrant
+plan1Body: "Do you even have stable housing, bro?"
+plan2: Mooch
+plan2Body: "You have more money than this..."
+plan3: Modicum of Human Decency
+plan3Body: "Do you want grants?  Because that's how you get grants."
 """.strip()
 
 DEFAULT_SRCS = {
