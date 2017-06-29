@@ -239,6 +239,9 @@ tagline: '"Helping people because of a thing for a period of time"'
 buttonText: "You should prolly like donate"
 marquee: The <marquee> element is obsolete and must not be used. While some browsers still support it, it's not required. In addition, using this element is basically one of the worst things you can do to your users, so please, please don't do it.
 
+theater: "UCB Theater in New York"
+theater_twitter: "ucbtny"
+
 enableSection2: true
 section2Image: "/img/CTGlcNPKpwOGR_NWSvidOA=="
 section2Title: "Annual prospectus agenda letter"
@@ -310,4 +313,5 @@ DEFAULT_SRCS = {
     'bootstrap-charity': BOOSTRAP_CHARITY_SRC,
     'philadelphia': BOOSTRAP_CHARITY_SRC,
     'bootstrap-charity-dark': BOOSTRAP_CHARITY_SRC,
+    'generic-charity': BOOSTRAP_CHARITY_SRC,
 }
