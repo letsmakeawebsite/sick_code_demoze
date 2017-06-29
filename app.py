@@ -231,6 +231,7 @@ plan3Body: "Corporations run the world, and you're a big-wig. This one's for you
 """.strip()
 
 BOOSTRAP_CHARITY_SRC = """
+audioFile: "/resource/audio/HighwayToHell.mp3"
 title: "Somebody's Charity"
 shortTitle: "Help Somethings In Need"
 headerImage: "/img/SiUcfaZre4lkveoNuaHWzg=="
@@ -314,4 +315,5 @@ DEFAULT_SRCS = {
     'philadelphia': BOOSTRAP_CHARITY_SRC,
     'bootstrap-charity-dark': BOOSTRAP_CHARITY_SRC,
     'generic-charity': BOOSTRAP_CHARITY_SRC,
+    'generic-charity-me': BOOSTRAP_CHARITY_SRC,
 }
