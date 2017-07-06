@@ -10,6 +10,9 @@ body {
     border-color: #819802;
     color: #fff;
 }
+.navbar-brand-link {
+    background: #ff4caf; padding: 12px; border-radius: 4px; color: #fff;
+}
 .btn-primary:hover {
     background-color: #efa500;
     border-color: #efa500;
