@@ -231,7 +231,7 @@ plan3Body: "Corporations run the world, and you're a big-wig. This one's for you
 """.strip()
 
 BOOSTRAP_CHARITY_SRC = """
-audioFile: "/resource/audio/HighwayToHell.mp3"
+audioFile: "/resource/audio/Seinfeld.mp3"
 title: "Somebody's Charity"
 shortTitle: "Help Somethings In Need"
 headerImage: "/img/SiUcfaZre4lkveoNuaHWzg=="
@@ -259,11 +259,13 @@ devSectionHeading: "All your bills are belong to us"
 devSectionBody: "We need money to sustain our efforts to collect more money"
 devSectionButton: "I just want the paper, the Visa, capiche?"
 devSectionCode: |
-    (defun charity (N)
-       "Give money"
-       (if (or (zerop N) (= N 1))
-           1
-         (+ (charity (- N 1)) (charity (- N 2)))))
+    PROCEDURE CHARITY.
+    Begin.
+        PERFORM UNTIL Moneys = 1000000000
+            ADD 1 TO Moneys
+        END-PERFORM
+        DISPLAY "Money Collected"
+        STOP RUN.
 
 enableQuote: true
 quoteImage: "/img/42NHLi2fPHB3mNqNR2Uylw=="
@@ -315,4 +317,5 @@ DEFAULT_SRCS = {
     'bootstrap-charity-dark': BOOSTRAP_CHARITY_SRC,
     'generic-charity': BOOSTRAP_CHARITY_SRC,
     'generic-charity-me': BOOSTRAP_CHARITY_SRC,
+    'generic-charity-xp': BOOSTRAP_CHARITY_SRC,
 }

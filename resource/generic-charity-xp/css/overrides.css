@@ -1,0 +1,52 @@
+body {
+    cursor: url("/resource/mark_cursor.png") 2 2, auto;
+}
+
+.app-ribbon {
+    background-color: #a5a5a5
+}
+.btn-primary {
+    background-color: #819802;
+    border-color: #819802;
+    color: #fff;
+}
+.btn-primary:hover {
+    background-color: #efa500;
+    border-color: #efa500;
+}
+.media-logos img {
+    height: 30px;
+}
+
+.app-iphone-block {
+    padding-bottom: 120px;
+}
+.app-iphone {
+    border-radius: 50%;
+}
+a {
+    color: #d6d6d6;
+}
+.app-marketing-grid i.fa {
+    font-size: 70pt;
+    width: 100px;
+    height: 100px;
+    color: #6e4b92;
+    margin: 10px;
+}
+.paypal {
+    margin: 20px auto;
+}
+.donate {
+    margin-bottom: 20px;
+}
+
+.app-code-block {
+    background-color: #353535;
+}
+.app-code {
+    color: #f7b22c;
+}
+a.navbar-brand {
+    color: #7aaadf;
+}
