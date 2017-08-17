@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="This website was built onstage in front of a live audience at {{ theater }} as part of the show 'Let's Make a Website'">
+        <meta name="keywords" content="Mark Vigeant, UCB, Website, Sketch Comedy, Web Ring, dumb, lol, haha, jk, why the fuck do keywords exist, is this helping my seo">
+        <meta name="author" content="Mark Vigeant, Kevin Dolan, and Matt Gehring">
+        <link href="/resource/bootstrap-marketing/img/favicon.ico" rel="shortcut icon" />
+
+        <!-- Open GRAPH dude -->
+        <meta property="og:title" content="{{ title }}" />
+        <meta property="og:description" content="This website was built onstage in front of a live audience at {{ theater }} as part of the show 'Let's Make a Website" />
+        <meta property="og:url" content="http://{{ domain }}/" />
+        <meta property="og:image" content="http://{{ domain }}{{ headerImage }}" />
+
+        <!-- TWITTER -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@stinkycheeseman" />
+        <meta name="twitter:title" content="{{ title }}" />
+        <meta name="twitter:creator" content="@stinkycheeseman" />
+        <meta name="twitter:description" content="This website was built onstage in front of a live audience at {{ theater }} as part of the show 'Let's Make a Website" />
+        <meta name="twitter:image" content="http://{{ domain }}{{ headerImage }}" />
+        <meta name="twitter:url" content="http://{{ domain }}/" />
+
+        <title>
+                {{ title }}
+        </title>
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
+        <link href="/resource/bootstrap-marketing/css/toolkit-minimal.css" rel="stylesheet">
+        <link href="/resource/bootstrap-marketing/css/application-startup.css" rel="stylesheet">
+        <link href="/resource/generic-charity-7/css/overrides.css" rel="stylesheet">
+
+        <style>
+            /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+            /* this chunk of css is not part of the toolkit :) */
+            /* …curses ios, etc… */
+            @media (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+                body {
+                    width: 1px;
+                    min-width: 100%;
+                    *width: 100%;
+                }
+                #stage {
+                    height: 1px;
+                    overflow: auto;
+                    min-height: 100vh;
+                    -webkit-overflow-scrolling: touch;
+                }
+            }
+        </style>
+
+        <style>
+        /*Simple reset*/
+* {margin: 0; padding: 0;}
+
+body {
+    /*You can use any kind of background here.*/
+    /*background: #6b92b9;*/
+}
+canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 500;
+
+}
+        </style>
+        <script type="text/javascript">
+window.onload = function(){
+    //canvas init
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    
+    //canvas dimensions
+    var W = window.innerWidth;
+    var H = window.innerHeight;
+    canvas.width = W;
+    canvas.height = H;
+    
+    //snowflake particles
+    var mp = 105; //max particles
+    var particles = [];
+    for(var i = 0; i < mp; i++)
+    {
+        particles.push({
+            x: Math.random()*W, //x-coordinate
+            y: Math.random()*H, //y-coordinate
+            r: Math.random()*4+1, //radius
+            d: Math.random()*mp, //density
+            color: "rgba(" + Math.floor((Math.random() * 255)) +", " + Math.floor((Math.random() * 255)) +", " + Math.floor((Math.random() * 255)) + ", 0.8)"
+        })
+    }
+    
+    //Lets draw the flakes
+    function draw()
+    {
+        ctx.clearRect(0, 0, W, H);
+        
+        
+        
+        for(var i = 0; i < mp; i++)
+        { 
+            var p = particles[i];
+            ctx.beginPath();
+            ctx.fillStyle = p.color;
+            ctx.moveTo(p.x, p.y);
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI*2, true);
+            ctx.fill();
+        }
+        
+        update();
+    }
+    
+    //Function to move the snowflakes
+    //angle will be an ongoing incremental flag. Sin and Cos functions will be applied to it to create vertical and horizontal movements of the flakes
+    var angle = 0;
+    function update()
+    {
+        angle += 0.01;
+        for(var i = 0; i < mp; i++)
+        {
+            var p = particles[i];
+            //Updating X and Y coordinates
+            //We will add 1 to the cos function to prevent negative values which will lead flakes to move upwards
+            //Every particle has its own density which can be used to make the downward movement different for each flake
+            //Lets make it more random by adding in the radius
+            p.y += Math.cos(angle+p.d) + 1 + p.r/2;
+            p.x += Math.sin(angle) * 2;
+            
+            //Sending flakes back from the top when it exits
+            //Lets make it a bit more organic and let flakes enter from the left and right also.
+            if(p.x > W+5 || p.x < -5 || p.y > H)
+            {
+                if(i%3 > 0) //66.67% of the flakes
+                {
+                    particles[i] = {x: Math.random()*W, y: -10, r: p.r, d: p.d, color : p.color};
+                }
+                else
+                {
+                    //If the flake is exitting from the right
+                    if(Math.sin(angle) > 0)
+                    {
+                        //Enter from the left
+                        particles[i] = {x: -5, y: Math.random()*H, r: p.r, d: p.d, color: p.color};
+                    }
+                    else
+                    {
+                        //Enter from the right
+                        particles[i] = {x: W+5, y: Math.random()*H, r: p.r, d: p.d, color : p.color};
+                    }
+                }
+            }
+        }
+    }
+    
+    //animation loop
+    setInterval(draw, 33);
+}
+
+
+        </script>
+</head>
+
+<body>
+
+<canvas id="world"></canvas>
+
+{% if audioFile %}
+    <audio controls autoplay loop>
+      <source src="{{ audioFile }}" type="audio/mp3">
+    </audio>
+{% endif %}
+
+
+
+
+<div class="block block-inverse block-fill-height app-header"
+         style="background-image: url('{{ headerImage }}');">
+
+         <nav class="navbar navbar-transparent navbar-fixed-top navbar-padded app-navbar p-t-md">
+                 <div class="container">
+                         <div class="social-links white" style="margin-right: 20px">
+                                 <a href="https://twitter.com/intent/tweet?text=I+helped+make+this+website&url=http://{{ domain }}/&via={{ theater_twitter }}&related=stinkycheeseman,kevinjdolan,lossywords,mrgehring" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
+                                         <i class="fa fa-twitter" aria-hidden="true"></i>
+                                 </a>
+                                 <a href="https://www.facebook.com/dialog/share?app_id=157154611123962&display=popup&href=http://{{ domain }}/" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
+                                         <i class="fa fa-facebook" aria-hidden="true"></i>
+                                 </a>
+                         </div>
+                         <div class="navbar-header">
+                                 <a class="navbar-brand" href="">
+                                         <strong class="navbar-brand-link">
+                                                 {{ shortTitle }}
+                                         </strong>
+                                 </a>
+                         </div>
+                 </div>
+         </nav>
+
+    <div class="block-xs-middle p-b-lg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-md-6">
+                    <h1 class="block-title m-b-sm">{{ headline }}</h1>
+                    <p class="lead m-b-md text-muted">{{ tagline }}</p>
+                    <a class="btn btn-primary btn-lg" href="https://twitter.com/intent/tweet?text=I+helped+make+this+website&url=http://{{ domain }}/&via={{ theater_twitter }}&related=stinkycheeseman,kevinjdolan,lossywords,mrgehring" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
+                            {{ buttonText }}
+                    </a>
+                    <marquee>
+                            {{ marquee }}
+                    </marquee>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if enableSection2 %}
+<div class="block block-secondary app-iphone-block">
+    <div class="container">
+        <div class="row app-align-center">
+
+            <div class="col-sm-6 col-sm-offset-1">
+                <h6 class="text-muted text-uppercase">{{ section2Title }}</h6>
+                <h3 class="m-t-0">{{ section2Heading }}</h3>
+                <p class="lead m-b-md">{{ section2Description }}</p>
+                <div class="row hidden-sm hidden-xs">
+                    <div class="col-sm-6 m-b-md">
+                        <h5 class="m-y-0">{{ section2Feature1Heading }}</h5>
+                        <p>{{ section2Feature1Description }}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <h5 class="m-y-0">{{ section2Feature2Heading }}</h5>
+                        <p>{{ section2Feature2Description }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                <img class="app-iphone" src="{{ section2Image }}" style="width: 100%;">
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endif %}
+
+{% if enableDevSection %}
+<div class="block block-inverse block-secondary app-code-block">
+    <div class="container">
+        <div class="row app-align-center">
+            <div class="col-sm-5 col-sm-push-7">
+                <pre class="app-code">{% for line in devSectionCode.split('\n') %} {{ line }}
+{% endfor %}</pre>
+            </div>
+
+            <div class="col-sm-6 col-sm-pull-5">
+                <h6 class="text-muted text-uppercase">{{ devSectionTitle }}</h6>
+                <h3 class="m-t-0">{{ devSectionHeading }}</h3>
+                <p class="lead m-b-md text-muted">{{ devSectionBody }}</p>
+                <a class="btn btn-primary btn-lg btn-borderless" href="https://twitter.com/intent/tweet?text=I+helped+make+this+website&url=http://{{ domain }}/&via={{ theater_twitter }}&related=stinkycheeseman,kevinjdolan,lossywords,mrgehring" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
+                    {{ devSectionButton }}
+            </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if enableQuote %}
+<div class="block block-secondary app-high-praise p-b-0">
+    <div class="container">
+        <div class="row app-align-center">
+            <div class="col-sm-5 col-sm-push-7">
+                <h6 class="text-muted text-uppercase">{{ quoteTitle }}</h6>
+                <h3 class="m-t-0 m-b-md">“{{ quoteBody }}”</h3>
+                <p class="m-b-md text-muted">{{ quoteAttribution }}</p>
+            </div>
+            <div class="col-sm-6 col-sm-pull-5">
+                <img src="{{ quoteImage }}">
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="block app-ribbon p-y-lg">
+    <div class="container text-center media-logos">
+        <img src="/resource/bootstrap-charity/img/logo-nyt.png">
+        <img src="/resource/bootstrap-charity/img/logo-wsj.png">
+        <img src="/resource/bootstrap-charity/img/logo-usat.png">
+    </div>
+</div>
+
+<div class="block block-inverse block-bordered-lg block-overflow-hidden p-b-0 app-block-design bing">
+        <div class="container">
+                <h3>Bing.com, on {{ title }}</h3>
+                <iframe src="https://bing.com"></iframe>
+        </div>
+</div>
+
+{% if enableFeatures %}
+<div class="block block-secondary app-block-marketing-grid">
+    <div class="container text-center">
+
+        <div class="row m-b-lg">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+                <h6 class="text-muted text-uppercase">{{ featureTitle }}</h6>
+                <h3  class="m-t-0 m-b">{{ featureBody }}</h3>
+            </div>
+        </div>
+
+        <div class="row app-marketing-grid">
+            <div class="col-sm-4 p-x-md m-b-lg">
+                <i class="fa fa-{{ feature1Icon }}"></i>
+                <p><strong>{{ feature1Header }}</strong> <div>{{ feature1Body }}</div></p>
+            </div>
+            <div class="col-sm-4 p-x-md m-b-lg">
+                <i class="fa fa-{{ feature2Icon }}"></i>
+                <p><strong>{{ feature2Header }}</strong> <div>{{ feature2Body }}</div></p>
+            </div>
+            <div class="col-sm-4 p-x-md m-b-lg">
+                <i class="fa fa-{{ feature3Icon }}"></i>
+                <p><strong>{{ feature3Header }}</strong> <div>{{ feature3Body }}</div></p>
+            </div>
+        </div>
+
+        {% if enableFeaturesLine2 %}
+        <div class="row app-marketing-grid">
+            <div class="col-sm-4 p-x-md m-b-lg">
+                <i class="fa fa-{{ feature4Icon }}"></i>
+                <p><strong>{{ feature4Header }}</strong> <div>{{ feature4Body }}</div></p>
+            </div>
+            <div class="col-sm-4 p-x-md m-b-lg">
+                <i class="fa fa-{{ feature5Icon }}"></i>
+                <p><strong>{{ feature5Header }}</strong> <div>{{ feature5Body }}</div></p>
+            </div>
+            <div class="col-sm-4 p-x-md m-b-lg">
+                <i class="fa fa-{{ feature6Icon }}"></i>
+                <p><strong>{{ feature6Header }}</strong> <div>{{ feature6Body }}</div></p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+
+{% if enablePlans %}
+<div class="block app-price-plans">
+    <div class="container text-center">
+
+        <div class="row m-b-lg">
+            <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+                <h6 class="text-muted text-uppercase">{{ plansTitle }}</h6>
+                <h3  class="m-t-0">{{ plansBody }}</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4 p-x m-b-lg">
+                <div class="p-x">
+                    <h6 class="text-muted text-uppercase m-b">{{ plan1 }}</h6>
+                    <img class="m-b" src="/resource/bootstrap-marketing/img/startup-15.svg">
+                    <p>{{ plan1Body }}</p>
+                </div>
+            </div>
+
+            <div class="col-sm-4 p-x m-b-lg">
+                <div class="p-x">
+                    <h6 class="text-muted text-uppercase m-b">{{ plan2 }}</h6>
+                    <img class="m-b" src="/resource/bootstrap-marketing/img/startup-16.svg">
+                    <p>{{ plan2Body }}</p>
+                </div>
+            </div>
+
+            <div class="col-sm-4 p-x m-b-lg">
+                <div class="p-x">
+                    <h6 class="text-muted text-uppercase m-b">{{ plan3 }}</h6>
+                    <img class="m-b" src="/resource/bootstrap-marketing/img/startup-17.svg">
+                    <p>{{ plan3Body }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="donate">
+            <a href="https://action.aclu.org/secure/donate-to-aclu" class="btn btn-primary" target="_blank">
+                Make your donation
+            </a>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if enableQuote2 %}
+<div class="block block-secondary app-high-praise app-quote-2 p-b-0">
+    <div class="container">
+        <div class="row app-align-center">
+            <div class="col-sm-6 col-sm-push-5">
+                <img src="{{ quoteImage2 }}">
+            </div>
+            <div class="col-sm-5 col-sm-pull-7">
+                <h6 class="text-muted text-uppercase">{{ quoteTitle2 }}</h6>
+                <h3 class="m-t-0 m-b-md">“{{ quoteBody2 }}”</h3>
+                <p class="m-b-md text-muted">{{ quoteAttribution2 }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if enablesectionQ %}
+<div class="block block-secondary app-iphone-block">
+    <div class="container">
+        <canvas id="canvas"></canvas>
+        <div class="row app-align-center">
+
+            <div class="col-sm-6 col-sm-offset-1">
+                <h6 class="text-muted text-uppercase">{{ sectionQTitle }}</h6>
+                <h3 class="m-t-0">{{ sectionQHeading }}</h3>
+                <p class="lead m-b-md">{{ sectionQDescription }}</p>
+                <div class="row hidden-sm hidden-xs">
+                    <div class="col-sm-6 m-b-md">
+                        <h5 class="m-y-0">{{ sectionQFeature1Heading }}</h5>
+                        <p>{{ sectionQFeature1Description }}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <h5 class="m-y-0">{{ sectionQFeature2Heading }}</h5>
+                        <p>{{ sectionQFeature2Description }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                <img class="app-iphone" src="{{ sectionQImage }}" style="width: 100%;">
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endif %}
+
+<div class="block block-bordered-lg text-center">
+        <div class="container-fluid">
+                <p class="lead m-b-md">
+                        Share this site with your friends via <strong>social media.</strong>
+                        Hey, it's better than fake news!
+                </p>
+                <div class="giant-share-buttons">
+                        <a href="https://twitter.com/intent/tweet?text=I+helped+make+this+website&url=http://{{ domain }}/&via={{ theater_twitter }}&related=stinkycheeseman,kevinjdolan,lossywords,mrgehring" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.facebook.com/dialog/share?app_id=157154611123962&display=popup&href=http://{{ domain }}/" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                </div>
+                <small class="text-muted">
+                        By clicking these share buttons, you agree to the surrender of your first-born child to local authorities, after a terrifying and dangerous manhunt.
+                </small>
+        </div>
+</div>
+
+<div class="block block-inverse app-block-footer">
+        <div class="container">
+                <div class="row">
+                        <div class="col-sm-3 m-b">
+
+                                <ul class="list-unstyled list-spaced">
+                                        <li><h6 class="text-uppercase">Other Websites</h6></li>
+                                        <li>
+                                                <a href="http://letsmakeaweb.site">
+                                                        letsmakeaweb.site
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a href="http://markvigeant.directory">
+                                                        markvigeant.directory
+                                                </a>
+                                        </li>
+                                </ul>
+
+                        </div>
+                        <div class="col-sm-3 m-b">
+
+                                <ul class="list-unstyled list-spaced">
+                                        <li><h6 class="text-uppercase">Rightside</h6></li>
+                                        <li>
+                                                <a href="http://www.rightside.co/">
+                                                        Rightside.co
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a href="https://www.name.com/">
+                                                        Name.com
+                                                </a>
+                                        </li>
+                                </ul>
+
+                        </div>
+        <div class="col-sm-6">
+                <h6 class="text-uppercase">About</h6>
+                <p>
+                        This website was built onstage in front of a live audience at {{ theater }} as part of the show "Let's Make a Website," written and performed by <a href="http://markvigeant.com">Mark Vigeant</a>, Directed by <a href="http://matthewrobertgehring.com/">Matt Gehring</a>, with help from <a href="http://haikufu.com/">Kevin J. Dolan</a> and <a href="http://www.alexredmon.com">Alex Redmon</a>.
+                </p>
+                <p>
+                        &copy; 2017 Mark Vigeant, Kevin J. Dolan
+                </p>
+        </div>
+</div>
+
+</div>
+
+
+        <script src="/resource/bootstrap-marketing/js/jquery.min.js"></script>
+        <script src="/resource/bootstrap-marketing/js/toolkit.js"></script>
+        <script src="/resource/bootstrap-marketing/js/application.js"></script>
+    </body>
+</html>

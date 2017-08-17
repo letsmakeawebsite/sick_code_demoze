@@ -1,0 +1,83 @@
+body {
+    cursor: url("/resource/mark_cursor.png") 2 2, auto;
+}
+
+.app-ribbon {
+    /*background-color: #a5a5a5*/
+    background: yellow; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #0f4389, #9ab4bc, #0f4389); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, orange , yellow, orange); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right,orange , yellow, orange); /* For Firefox 3.6 to 15 */
+    background: linear-gradient;
+}
+.btn-primary {
+    background-color: #9ab4bc;
+    background: -webkit-linear-gradient(top, #9ab4bc, #5c828e); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom, #fdb138 , #dc8700); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom, #fdb138 , #dc8700); /* For Firefox 3.6 to 15 */
+    background: linear-gradient;
+
+    border-color: #5c828e;
+    color: #fff;
+}
+.navbar-brand-link {
+    background: #fdb138;
+    background: -webkit-linear-gradient(top, #fdb138 , #dc8700); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom, #fdb138 , #dc8700); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom, #fdb138 , #dc8700); /* For Firefox 3.6 to 15 */
+    background: linear-gradient;
+    padding: 12px;
+    border-radius: 4px;
+    color: #fff;
+}
+.btn-primary:hover {
+    background-color: #9ab4bc;
+    border-color: #9ab4bc;
+}
+.media-logos img {
+    height: 30px;
+}
+
+.app-iphone-block {
+    padding-bottom: 120px;
+}
+.app-iphone {
+    border-radius: 50%;
+}
+a {
+    color: #d6d6d6;
+}
+.app-marketing-grid i.fa {
+    font-size: 70pt;
+    width: 150px;
+    height: 100px;
+    /*color: #fdb138;*/
+    background: -webkit-linear-gradient(top, #fdb138 , #dc8700); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom, #fdb138 , #dc8700); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom, #fdb138 , #dc8700); /* For Firefox 3.6 to 15 */
+    background: linear-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 10px;
+
+}
+.paypal {
+    margin: 20px auto;
+}
+.donate {
+    margin-bottom: 20px;
+}
+
+.app-code-block {
+    background-color: #353535;
+}
+.app-code {
+    color: #a3e3f7;
+}
+a.navbar-brand {
+    color: #7aaadf;
+}
+.app-quote-2 {
+    background-color: #353535;
+    color: #a3e3f7;
+}

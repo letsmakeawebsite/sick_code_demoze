@@ -231,10 +231,10 @@ plan3Body: "Corporations run the world, and you're a big-wig. This one's for you
 """.strip()
 
 BOOSTRAP_CHARITY_SRC = """
-audioFile: "/resource/audio/Seinfeld.mp3"
+audioFile: "/resource/audio/LooneyTunes.mp3"
 title: "Somebody's Charity"
 shortTitle: "Help Somethings In Need"
-headerImage: "/img/SiUcfaZre4lkveoNuaHWzg=="
+headerImage: "/resource/generic-charity-7/img/mark.jpg"
 headline: "Somebody's Foundation for the Something"
 tagline: '"Helping people because of a thing for a period of time"'
 buttonText: "You should prolly like donate"
@@ -244,67 +244,89 @@ theater: "UCB Theater in New York"
 theater_twitter: "ucbtny"
 
 enableSection2: true
-section2Image: "/img/CTGlcNPKpwOGR_NWSvidOA=="
-section2Title: "Weekly syllabus schedule memo"
-section2Heading: "Please to provide with timelines post haste"
-section2Description: '"Silly rabbit, Trix are generally incompatible with your recommended diet of hay and/or grass with leafy green vegetables, herbs, and safe weeds" - Krang, Chief Charity Coordinator'
-section2Feature1Heading: "Do what you want"
-section2Feature1Description: "But def donate"
-section2Feature2Heading: "The Human Fund"
-section2Feature2Description: "Money for people"
+section2Image: "/resource/generic-charity-7/img/mark.jpg"
+section2Title: "Regularly scheduled programming"
+section2Heading: "Official Party Bulletin"
+section2Description: "Where there's a will, there's a way to distribute a person's assets after their death"
+section2Feature1Heading: "What you want"
+section2Feature1Description: "Baby I've got it"
+section2Feature2Heading: "What you need"
+section2Feature2Description: "Is just a little e-check"
 
 enableDevSection: true
-devSectionTitle: "Please to initiate wire transfer?"
-devSectionHeading: "All your bills are belong to us"
-devSectionBody: "We need money to sustain our efforts to collect more money"
-devSectionButton: "I just want the paper, the Visa, capiche?"
+devSectionTitle: "You know I'm comin for that cash"
+devSectionHeading: "Gimme gimme gimme"
+devSectionBody: "Without money we would be unable to collect more money"
+devSectionButton: "Money money money money...  MONEEEY!"
 devSectionCode: |
-    PROCEDURE CHARITY.
-    Begin.
-        PERFORM UNTIL Moneys = 1000000000
-            ADD 1 TO Moneys
-        END-PERFORM
-        DISPLAY "Money Collected"
-        STOP RUN.
+    class Charity extends Component {    
+        getMoneys() {
+            return this.state.moneys
+        }
+        render() {
+            return (
+                <div>
+                    Donations: {this.getMoneys()}
+                </div>
+            )
+        }
+    }
 
 enableQuote: true
-quoteImage: "/img/42NHLi2fPHB3mNqNR2Uylw=="
-quoteTitle: "Something someone said:"
-quoteBody: "My life is dope and I do dope shit"
-quoteAttribution: "Yeezy, Jr. Influencer"
+quoteImage: "/resource/generic-charity-7/img/mark.jpg"
+quoteTitle: "Get a load of what this person said:"
+quoteBody: "And Alexander wept, for there were no more worlds to conquer"
+quoteAttribution: "Hans Gruber, Die Hard"
 
 enableFeatures: true
 featureTitle: ""
 featureBody: ""
-feature1Icon: bullhorn
-feature1Header: "Go tell it on the mountain"
-feature1Body: "Over the hills and everywhere"
-feature2Icon: bath
-feature2Header: 'Clean your conscience'
-feature2Body: "You know what you've done"
-feature3Icon: asl-interpreting
-feature3Header: "Not a gang sign"
-feature3Body: "ASL/Accessibility compliant"
+feature1Icon: cut
+feature1Header: "We don't wanna cut you, man"
+feature1Body: "But best believe we will"
+feature2Icon: hand-o-left
+feature2Header: "Don't be alt-left"
+feature2Body: "Do the right thing and give"
+feature3Icon: cc-visa
+feature3Header: "We accept all major credit cards"
+feature3Body: "And a few from the minors as well"
 enableFeaturesLine2: true
-feature4Icon: cloud
-feature4Header: "Caring... in the cloud"
-feature4Body: "It's a buzzword so you know it's important"
-feature5Icon: eye-slash
-feature5Header: "Avoid eye slashing"
-feature5Body: "Lack of donation may lead to getting yourself cut"
-feature6Icon: group
-feature6Header: "Roll deep"
-feature6Body: "If everyone else donated, wouldn't you?"
+feature4Icon: tree
+feature4Header: "How about tree fiddy?"
+feature4Body: "It was about that time I realized..."
+feature5Icon: ticket
+feature5Header: "Free raffle entry with donation!"
+feature5Body: "Win a wacky waving arm flailing inflatable tube man"
+feature6Icon: spinner
+feature6Header: "Loading..."
+feature6Body: "We appreciate your patience"
 
 enablePlans: true
-plansTitle: How much money you got?
-plansBody: "We'll take as much as you'll give us"
-plan1: Vagrant
-plan1Body: "Do you even have stable housing, bro?"
-plan2: Mooch
-plan2Body: "You have more money than this..."
-plan3: Modicum of Human Decency
-plan3Body: "Do you want grants?  Because that's how you get grants."
+plansTitle: Please to send funds?
+plansBody: "No limits, like Master P"
+plan1: Street Rat
+plan1Body: "You're clearly not taking this seriously"
+plan2: Schmuck
+plan2Body: "Exactly what someone who looks like *you* would donate"
+plan3: Sucker
+plan3Body: "Hey big spender!"
+
+enableQuote2: true
+quoteImage2: "/resource/generic-charity-7/img/mark.jpg"
+quoteTitle2: "Something else someone said:"
+quoteBody2: "281-330-8004"
+quoteAttribution2: "Ricky Rose"
+
+enablesectionQ: true
+sectionQImage: "/resource/generic-charity-7/img/mark.jpg"
+sectionQTitle: "This is the *final* final show!"
+sectionQHeading: "Glad you could make it out"
+sectionQDescription: "One day (soon) you'll tell your children and your children's children that you were HERE, TONIGHT!"
+sectionQFeature1Heading: "Sick"
+sectionQFeature1Description: "Woop woop!"
+sectionQFeature2Heading: "Blerg"
+sectionQFeature2Description: "We'll see who has the last laugh...  Hopefully you!"
+
 """.strip()
 
 DEFAULT_SRCS = {
@@ -318,4 +340,6 @@ DEFAULT_SRCS = {
     'generic-charity': BOOSTRAP_CHARITY_SRC,
     'generic-charity-me': BOOSTRAP_CHARITY_SRC,
     'generic-charity-xp': BOOSTRAP_CHARITY_SRC,
+    'generic-charity-vista': BOOSTRAP_CHARITY_SRC,
+    'generic-charity-7': BOOSTRAP_CHARITY_SRC,
 }
