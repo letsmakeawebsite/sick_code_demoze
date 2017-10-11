@@ -231,7 +231,7 @@ plan3Body: "Corporations run the world, and you're a big-wig. This one's for you
 """.strip()
 
 BOOSTRAP_CHARITY_SRC = """
-audioFile: "/resource/audio/LooneyTunes.mp3"
+audioFile: "/resource/audio/LMAW.mp3"
 title: "Somebody's Charity"
 shortTitle: "Help Somethings In Need"
 headerImage: "/resource/generic-charity-7/img/mark.jpg"
@@ -342,4 +342,5 @@ DEFAULT_SRCS = {
     'generic-charity-xp': BOOSTRAP_CHARITY_SRC,
     'generic-charity-vista': BOOSTRAP_CHARITY_SRC,
     'generic-charity-7': BOOSTRAP_CHARITY_SRC,
+    'the-matrix-reloaded': BOOSTRAP_CHARITY_SRC,
 }
