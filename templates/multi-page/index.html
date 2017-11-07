@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="This website was built from live audience suggestions on FunnyOrDie's Facebook Live as part of the show 'Let's Make a Website'">
+    <meta name="keywords" content="Mark Vigeant, UCB, Website, Sketch Comedy, Web Ring, dumb, lol, haha, jk, why the fuck do keywords exist, is this helping my seo">
+    <meta name="author" content="Mark Vigeant, Kevin Dolan, and Matt Gehring">
+    <link href="/resource/bootstrap-marketing/img/favicon.ico" rel="shortcut icon" />
+
+    <!-- Open GRAPH dude -->
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:description" content="This website was built from live audience suggestions on FunnyOrDie's Facebook Live as part of the show 'Let's Make a Website'" />
+    <meta property="og:url" content="http://{{ domain }}/" />
+    <meta property="og:image" content="http://{{ domain }}{{ headerImage }}" />
+
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@stinkycheeseman" />
+    <meta name="twitter:title" content="{{ title }}" />
+    <meta name="twitter:creator" content="@stinkycheeseman" />
+    <meta name="twitter:description" content="This website was built from live audience suggestions on FunnyOrDie's Facebook Live as part of the show 'Let's Make a Website'" />
+    <meta name="twitter:image" content="http://{{ domain }}{{ headerImage }}" />
+    <meta name="twitter:url" content="http://{{ domain }}/" />
+
+    <title>
+        {{ title }}
+    </title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
+    <link href="/resource/multi-page/style.css" rel="stylesheet">
+
+</head>
+<body
+    data-base="{{ request.path }}"
+    data-title="{{ title }}"
+>
+    <div class="nav">
+        {% for page in pages %}
+            <a href="{{ page.path }}" class="nav-link">
+                {{ page.title }}
+            </a>
+        {% endfor %}
+    </div>
+
+    {% for page in pages %}
+        <div
+            data-path="{{ page.path }}"
+            data-title="{{ page.title }}"
+            class="page"
+            style="background-image: url('{{ page.image }}')"
+        >
+            <h1>{{ page.heading }}</h1>
+            <div class="body">
+                {% for p in page.body %}
+                    <p>{{ p }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="footer">
+        <div class="social">
+            <a href="https://twitter.com/intent/tweet?text=I+helped+make+this+website&url=http://{{ domain }}/&via=funnyordie&related=stinkycheeseman,kevinjdolan,lossywords,mrgehring" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.facebook.com/dialog/share?app_id=157154611123962&display=popup&href=http://{{ domain }}/" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="title">{{ title }}</div>
+    </div>
+
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+        crossorigin="anonymous"></script>
+    <script
+        src="/resource/multi-page/behavior.js"></script>
+</body>
+</html>

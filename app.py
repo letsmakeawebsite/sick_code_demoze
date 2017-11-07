@@ -259,7 +259,7 @@ devSectionHeading: "Gimme gimme gimme"
 devSectionBody: "Without money we would be unable to collect more money"
 devSectionButton: "Money money money money...  MONEEEY!"
 devSectionCode: |
-    class Charity extends Component {    
+    class Charity extends Component {
         getMoneys() {
             return this.state.moneys
         }
@@ -329,6 +329,25 @@ sectionQFeature2Description: "We'll see who has the last laugh...  Hopefully you
 
 """.strip()
 
+MULTISITE_SRC = """
+title: Title
+pages:
+- path: /
+  title: Page 1
+  heading: This is Page 1
+  image: http://putinspussies.club/img/AMIfv94MQuFWVxZAFV3XZUuMFVJ-lWmzJWUiyK-fM9i0FvK8vpDP__fZQbcXuudh-ccocxhNtsavJSoQZQi4IfQxxrN0DtRcQ5iQ22Xkg-6qO0v6S8A14vBIbRoSiRxVm1SdZtJ3dsbdLVftoIPIx_G26tJC-tIoXb-s9vGa_bUmktFkUnJetCgcsNtALiALp_0ByQmwcQhBxVBx-auYMUDQ19QypEiUUa8thxu0lJg9nnn7XeL59Ne03pD4TSCFrOiX_x4MGdad2ikVfe7FisGwrMPmXUuoKMYO9-u-_XxBwvmJFIb5BV0LYKnui2zkDkG-oWf3AZKG41jZeUzsLGYdmMyeIWswrgiIKlcoRCxdv7fLaIXoEHK8EQQXkhRTYbj8Dw9UaJJy
+  body:
+  - This is the body for page 1.
+  - This is another paragraph.
+- path: /page2
+  title: Page 2
+  heading: This is Page 2
+  image: http://putinspussies.club/img/AMIfv94MQuFWVxZAFV3XZUuMFVJ-lWmzJWUiyK-fM9i0FvK8vpDP__fZQbcXuudh-ccocxhNtsavJSoQZQi4IfQxxrN0DtRcQ5iQ22Xkg-6qO0v6S8A14vBIbRoSiRxVm1SdZtJ3dsbdLVftoIPIx_G26tJC-tIoXb-s9vGa_bUmktFkUnJetCgcsNtALiALp_0ByQmwcQhBxVBx-auYMUDQ19QypEiUUa8thxu0lJg9nnn7XeL59Ne03pD4TSCFrOiX_x4MGdad2ikVfe7FisGwrMPmXUuoKMYO9-u-_XxBwvmJFIb5BV0LYKnui2zkDkG-oWf3AZKG41jZeUzsLGYdmMyeIWswrgiIKlcoRCxdv7fLaIXoEHK8EQQXkhRTYbj8Dw9UaJJy
+  body:
+  - This is the body for page 2.
+  - This is another paragraph.
+""".strip()
+
 DEFAULT_SRCS = {
     'bootstrap-marketing': BOOTSTRAP_MARKETING_SRC,
     'bootstrap-marketing-dark': BOOTSTRAP_MARKETING_SRC,
@@ -343,4 +362,5 @@ DEFAULT_SRCS = {
     'generic-charity-vista': BOOSTRAP_CHARITY_SRC,
     'generic-charity-7': BOOSTRAP_CHARITY_SRC,
     'the-matrix-reloaded': BOOSTRAP_CHARITY_SRC,
+    'multi-page': MULTISITE_SRC,
 }
