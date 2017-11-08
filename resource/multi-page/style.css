@@ -47,8 +47,14 @@ table {
 	border-spacing: 0;
 }
 
+html {
+	height: 100%;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
+	background-color: #000;
+	height: 100%;
 }
 
 * {
@@ -65,26 +71,30 @@ body {
     background-position: 50% 50%;
     z-index: 10;
     display: none;
+	overflow-y: auto;
+	padding: 60px 0;
 }
 
 .page h1 {
-    margin: 120px auto 40px auto;
+    margin: 20px auto 40px auto;
     text-align: center;
     font-size: 48px;
     font-weight: bold;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     color: #fff;
 }
 
 .page .body {
     margin: 20px auto;
     max-width: 600px;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px 20px 10px 20px;
 }
 
-.page .body p {
-    margin-bottom: 10px;
+.page .body .section {
+    margin-bottom: 20px;
+	background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px 20px 20px 20px;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+	border-radius: 5px;
 }
 
 .nav {
@@ -96,6 +106,7 @@ body {
     display: flex;
     padding: 10px;
     justify-content: center;
+	background-color: #000;
 }
 
 .nav .nav-link {
@@ -106,7 +117,8 @@ body {
     display: block;
     text-decoration: none;
     padding: 5px 10px;
-    margin: 0 20px;
+    margin: 0 10px;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 .footer {
@@ -126,10 +138,23 @@ body {
     text-decoration: none;
 }
 
-.footer .title {
-    float: left;
+.footer .copyright {
+    font-size: 18px;
+	line-height: 36px;
+}
+
+.footer .copyright a {
+	text-decoration: underline;
 }
 
 .footer .social {
     float: right;
+}
+
+@media (max-width:600px) {
+
+	.footer .copyright {
+		font-size: 12px;
+	}
+
 }

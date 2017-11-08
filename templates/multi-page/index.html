@@ -51,12 +51,14 @@
             data-path="{{ page.path }}"
             data-title="{{ page.title }}"
             class="page"
-            style="background-image: url('{{ page.image }}')"
+            style="background-image: url('{{ page.image }}');"
         >
             <h1>{{ page.heading }}</h1>
             <div class="body">
-                {% for p in page.body %}
-                    <p>{{ p }}</p>
+                {% for section in page.body %}
+                    <div class="section">
+                        {{ section|safe }}
+                    </div>
                 {% endfor %}
             </div>
         </div>
@@ -71,7 +73,21 @@
                 <i class="fa fa-facebook" aria-hidden="true"></i>
             </a>
         </div>
-        <div class="title">{{ title }}</div>
+        <div class="copyright">
+            <strong>© 2017 Mark Vigeant</strong>
+            |
+            <a href="http://www.markvigeant.com" target="_blank">
+                MV.com
+            </a>
+            |
+            <a href="http://www.markvigeant.directory" target="_blank">
+                MV.dir
+            </a>
+            |
+            <a href="http://letsmakeaweb.site" target="_blank">
+                LMAW
+            </a>
+        </div>
     </div>
 
     <script
