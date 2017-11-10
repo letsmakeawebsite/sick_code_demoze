@@ -362,5 +362,6 @@ DEFAULT_SRCS = {
     'generic-charity-vista': BOOSTRAP_CHARITY_SRC,
     'generic-charity-7': BOOSTRAP_CHARITY_SRC,
     'the-matrix-reloaded': BOOSTRAP_CHARITY_SRC,
+    'the-matrix-revolutions': BOOSTRAP_CHARITY_SRC,
     'multi-page': MULTISITE_SRC,
 }
